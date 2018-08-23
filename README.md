@@ -6,3 +6,4 @@ All important data structures in java without using util library.
 - Queue implementation in Java.
 - Deque using DoublyLinkedList (custom).
 - LRU Cache implementation using Deque and hashMap.
+- Binary Min Heap in Java.

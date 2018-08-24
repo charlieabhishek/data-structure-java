@@ -14,15 +14,15 @@
 
 package LinkListDS;
 
-public class CustomLinkList {
+public class CustomLinkList<T> {
 	
-	Node head;
+	Node<T> head;
 	
-	static class Node{
-		int data;
-		Node next;
+	static class Node<T>{
+		T data;
+		Node<T> next;
 		
-		public Node(int val){
+		public Node(T val){
 			this.data = val;
 		}
 	}
@@ -32,7 +32,7 @@ public class CustomLinkList {
 	 * Time Complexity:O(1).
 	 */
 	
-	void addNode(Node node){
+	void addNode(Node<T> node){
 		if(head==null) {
 			head = node;
 		}else {
@@ -54,8 +54,8 @@ public class CustomLinkList {
 	 * Function for searchig a node in Linked List
 	 * Time Complexity : O(n) where n - size of Linked List.
 	 */
-	Node searchNode(int val) {
-		Node tempNode = head;
+	Node<T> searchNode(T val) {
+		Node<T> tempNode = head;
 		while(tempNode != null) {
 			if(tempNode.data == val) {
 				break;
@@ -71,12 +71,12 @@ public class CustomLinkList {
 	 * return true if node is delted.
 	 */
 	
-	boolean deleteNode(int val) {
+	boolean deleteNode(T val) {
 		if(head==null) {
 			return false;
 		}else {
-			Node tempNode = head;
-			Node prevNode = head;
+			Node<T> tempNode = head;
+			Node<T> prevNode = head;
 			boolean isFound = false;
 			while(tempNode != null) {
 				if(tempNode.data == val) {
@@ -95,7 +95,7 @@ public class CustomLinkList {
 	}
 	
 	void printLinkList() {
-		Node tempNode = head;
+		Node<T> tempNode = head;
 		while(tempNode != null) {
 			System.out.print(tempNode.data+"-->");
 			tempNode = tempNode.next;
@@ -103,15 +103,39 @@ public class CustomLinkList {
 	}
 	
 	public static void main(String[] args) {
-		CustomLinkList customLL = new CustomLinkList();
-		customLL.addNode(new Node(10));
-		customLL.addNode(new Node(12));
-		customLL.addNode(new Node(2));
-		customLL.addNode(new Node(112));
-		customLL.addNode(new Node(1222));
+		System.out.println("------Integer type Linked List--------");
+		CustomLinkList<Integer> customLL = testIntegerLinkedList();
+		
+		System.out.println("------String type Linked List--------");
+		CustomLinkList<String> sCustomLL = new CustomLinkList<String>();
+		System.out.println();
+		printStringLL(sCustomLL);
+	}
+
+	private static void printStringLL(CustomLinkList<String> sCustomLL) {
+		sCustomLL.addNode(new Node<String>("Romeo"));
+		sCustomLL.addNode(new Node<String>("Tommy"));
+		sCustomLL.addNode(new Node<String>("Johnny"));
+		sCustomLL.addNode(new Node<String>("Abhishek"));
+		sCustomLL.addNode(new Node<String>("Kumar"));
+		sCustomLL.addNode(new Node<String>("Danny"));
+		sCustomLL.printLinkList();
+		sCustomLL.deleteNode("Johnny");
+		System.out.println();
+		sCustomLL.printLinkList();
+	}
+
+	private static CustomLinkList<Integer> testIntegerLinkedList() {
+		CustomLinkList<Integer> customLL = new CustomLinkList<Integer>();
+		customLL.addNode(new Node<Integer>(10));
+		customLL.addNode(new Node<Integer>(12));
+		customLL.addNode(new Node<Integer>(2));
+		customLL.addNode(new Node<Integer>(112));
+		customLL.addNode(new Node<Integer>(1222));
 		customLL.printLinkList();
 		customLL.deleteNode(2);
 		System.out.println();
 		customLL.printLinkList();
+		return customLL;
 	}
 }

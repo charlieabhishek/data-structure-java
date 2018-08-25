@@ -104,7 +104,7 @@ public class CustomLinkList<T> {
 	
 	public static void main(String[] args) {
 		System.out.println("------Integer type Linked List--------");
-		CustomLinkList<Integer> customLL = testIntegerLinkedList();
+		testIntegerLinkedList();
 		
 		System.out.println("------String type Linked List--------");
 		CustomLinkList<String> sCustomLL = new CustomLinkList<String>();

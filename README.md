@@ -8,3 +8,4 @@ All important data structures in java without using util library.
 - LRU Cache implementation using Deque and hashMap.
 - Binary Min Heap in Java.
 - Binary Search Tree implementation.
+- AVL Tree Implementation in Java.
